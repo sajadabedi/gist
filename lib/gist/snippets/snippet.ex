@@ -18,6 +18,6 @@ defmodule Gist.Snippets.Snippet do
   def changeset(snippet, attrs) do
     snippet
     |> cast(attrs, [:name, :description, :markup_text, :user_id])
-    |> validate_required([:name, :description, :markup_text, :user_id])
+    |> validate_required([:name, :user_id])
   end
 end
