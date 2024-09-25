@@ -19,4 +19,18 @@ defmodule Gist.SnippetsFixtures do
 
     snippet
   end
+
+  @doc """
+  Generate a saved_snippet.
+  """
+  def saved_snippet_fixture(attrs \\ %{}) do
+    {:ok, saved_snippet} =
+      attrs
+      |> Enum.into(%{
+
+      })
+      |> Gist.Snippets.create_saved_snippet()
+
+    saved_snippet
+  end
 end
