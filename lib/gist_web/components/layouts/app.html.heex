@@ -1,26 +1,32 @@
 <header class="px-4 sm:px-6 lg:px-8">
-  <div class="flex items-center justify-between border-b border-zinc-100 py-3 text-sm">
+  <div class="grid grid-cols-[auto_1fr_auto] gap-5 items-center justify-between border-b border-zinc-100 py-3 text-sm">
     <div class="flex items-center gap-4">
       <a href="/">
         <img src={~p"/images/logo.svg"} width="36" />
       </a>
-      <p class="bg-brand/5 text-brand rounded-full px-2 font-medium leading-6">
-        v<%= Application.spec(:phoenix, :vsn) %>
+      <p class="text-brand rounded-full font-bold">
+        Gist
       </p>
     </div>
+    <div class="grid grid-cols-[auto_1fr] grid-rows-1 items-center">
+      <.icon name="hero-magnifying-glass-mini" class="ml-2
+      h-4 w-4 text-zinc-400 col-start-1 row-start-1" />
+      <input type="text" placeholder="Search"
+        class="rounded-md outline-0 border-0 bg-zinc-100 pl-7 py-2 col-start-1 row-start-1 col-span-full">
+    </div>
     <div class="flex items-center gap-4 font-semibold leading-6 text-zinc-900">
-      <a href="https://twitter.com/elixirphoenix" class="hover:text-zinc-700">
-        @elixirphoenix
-      </a>
-      <a href="https://github.com/phoenixframework/phoenix" class="hover:text-zinc-700">
-        GitHub
-      </a>
-      <a
-        href="https://hexdocs.pm/phoenix/overview.html"
-        class="rounded-lg bg-zinc-100 px-2 py-1 hover:bg-zinc-200/80"
-      >
-        Get Started <span aria-hidden="true">&rarr;</span>
-      </a>
+      <ul class="flex gap-4">
+        <li>
+          <a href="" class="hover:text-zinc-700">
+            All Gists
+          </a>
+        </li>
+        <li>
+          <a href="" class="hover:text-zinc-700">
+            Settings
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </header>
@@ -30,3 +36,38 @@
     <%= @inner_content %>
   </div>
 </main>
+
+<!--
+<ul class="relative z-10 flex items-center gap-4 px-4 sm:px-6 lg:px-8 justify-end">
+  <%= if @current_user do %>
+    <li class="text-[0.8125rem] leading-6 text-zinc-900">
+      <%= @current_user.email %>
+    </li>
+    <li>
+      <.link href={~p"/users/settings"}
+        class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700">
+        Settings
+      </.link>
+    </li>
+    <li>
+      <.link href={~p"/users/log_out"} method="delete"
+        class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700">
+        Log out
+      </.link>
+    </li>
+    <% else %>
+      <li>
+        <.link href={~p"/users/register"}
+          class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700">
+          Register
+        </.link>
+      </li>
+      <li>
+        <.link href={~p"/users/log_in"}
+          class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700">
+          Log in
+        </.link>
+      </li>
+      <% end %>
+</ul>
+-->
