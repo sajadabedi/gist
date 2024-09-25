@@ -17,7 +17,7 @@ defmodule GistWeb.CoreComponents do
   use Phoenix.Component
 
   alias Phoenix.LiveView.JS
-  import GistWeb.Gettext
+  use Gettext, backend: GistWeb.Gettext
 
   @doc """
   Renders a modal.
