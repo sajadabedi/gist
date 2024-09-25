@@ -8,7 +8,8 @@ defmodule Gist.Snippets.Snippet do
     field :name, :string
     field :description, :string
     field :markup_text, :string
-    field :user_id, :binary_id
+    belongs_to :user, Gist.Accounts.User
+    has_many :comment, Gist.Comments.Comment
 
     timestamps(type: :utc_datetime)
   end
@@ -16,7 +17,7 @@ defmodule Gist.Snippets.Snippet do
   @doc false
   def changeset(snippet, attrs) do
     snippet
-    |> cast(attrs, [:name, :description, :markup_text])
-    |> validate_required([:name, :description, :markup_text])
+    |> cast(attrs, [:name, :description, :markup_text, :user_id])
+    |> validate_required([:name, :description, :markup_text, :user_id])
   end
 end

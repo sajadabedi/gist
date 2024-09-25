@@ -49,8 +49,9 @@ defmodule Gist.Snippets do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_snippet(attrs \\ %{}) do
-    %Snippet{}
+  def create_snippet(user, attrs \\ %{}) do
+    user
+    |> Ecto.build_assoc(:snippets)
     |> Snippet.changeset(attrs)
     |> Repo.insert()
   end
@@ -145,8 +146,9 @@ defmodule Gist.Snippets do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_saved_snippet(attrs \\ %{}) do
-    %SavedSnippet{}
+  def create_saved_snippet(user, attrs \\ %{}) do
+    user
+    |> Ecto.build_assoc(:saved_snippets)
     |> SavedSnippet.changeset(attrs)
     |> Repo.insert()
   end
