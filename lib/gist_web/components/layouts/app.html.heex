@@ -23,7 +23,7 @@
             <.icon name="hero-bookmark" class="h-4 w-4" />Saved Gist
           </a>
         </li>
-        <%= if assigns[:current_user] do %>
+        <%= if @current_user do %>
           <li>
             <.link href={~p"/users/settings"} class="hover:text-zinc-700 items-center gap-1 flex">
               <.icon name="hero-user-circle" class="h-4 w-4" />Profile

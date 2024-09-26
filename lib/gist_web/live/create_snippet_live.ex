@@ -10,7 +10,10 @@ defmodule GistWeb.CreateSnippetLive do
   def render(assigns) do
     ~H"""
     <div class="flex">
-      <h1 class="font-semibold">Instantly share Elixir code, notes and snippets.</h1>
+      <.header>
+        Instantly share Elixir code, notes and snippets.
+        <:subtitle>Gist away</:subtitle>
+      </.header>
       <.simple_form for={@form} phx-submit="create" phx-change="validate">
         <.input
           field={@form[:description]}
